@@ -2,6 +2,14 @@ require 'bootstrap-sass'
 require 'font-awesome-sass'
 require 'fog'
 require 'cgi'
+require 'rack/cors'
+
+use Rack::Cors do
+  allow do
+    origins '*'
+    resource '*'
+  end
+end
 
 set :markdown_engine, :redcarpet
 set :markdown, fenced_code_blocks: true, smartypants: true
